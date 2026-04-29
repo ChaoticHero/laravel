@@ -17,6 +17,16 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+
+    public function profile()
+        {
+            return $this->hasOne(Profile::class);
+        }
+
+        public function projects()
+        {
+            return $this->hasMany(Project::class);
+        }
     /**
      * Get the attributes that should be cast.
      *
@@ -29,4 +39,5 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
 }
